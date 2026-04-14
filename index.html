@@ -266,8 +266,6 @@
       position: relative;
       z-index: 1;
       width: 100%;
-      object-fit: cover;
-      max-height: 500px;
       display: block;
     }
 
@@ -566,7 +564,9 @@
   <!-- ══════════════════ NAVBAR ══════════════════════ -->
   <nav class="navbar navbar-expand-lg">
     <div class="container">
-      <a class="navbar-brand" href="#hero">HANNETTE <span>STAACK</span></a>
+      <a class="navbar-brand" href="#hero">
+        <img src="img/logo.png" alt="Hannette Staack BJJ" height="48" class="me-2">HANNETTE <span>STAACK</span>
+      </a>
       <button class="navbar-toggler" type="button"
               data-bs-toggle="collapse" data-bs-target="#navMenu"
               aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
@@ -618,9 +618,9 @@
           </div>
         </div>
         <!-- Optional: place hero photo on right col -->
-        <div class="col-lg-5 d-none d-lg-flex justify-content-end">
-          <!-- Replace src with actual athlete photo -->
-          <!-- <img src="img/hannette-hero.png" alt="Hannette Staack" class="img-fluid"> -->
+        <div class="col-lg-5 d-none d-lg-block" style="position:relative;">
+          <img src="img/hannette-hero.png" alt="Hannette Staack"
+            style="position:absolute; top:-700px; left:-300px; height:1500px; width:auto; mix-blend-mode:screen; object-fit:contain;">
         </div>
       </div>
     </div>
@@ -635,10 +635,7 @@
         <div class="col-lg-5">
           <div class="about-img-wrapper">
             <!-- Replace with real photo: <img src="img/hannette-about.jpg" alt="Hannette Staack"> -->
-            <div class="about-img-placeholder">
-              <i class="bi bi-person-fill"></i>
-              <span>Add athlete photo here</span>
-            </div>
+            <img src="img/hannette-about.jpg" alt="Hannette Staack" class="img-fluid">
           </div>
         </div>
 
@@ -694,7 +691,7 @@
             </p>
             <p class="event-detail">
               <i class="bi bi-geo-alt-fill"></i>
-              Location TBA
+              Monroe Jiu Jitsu — 11 E Second St, Monroe, MI 48161
             </p>
             <a href="#contact" class="btn-primary-custom mt-3" style="font-size:0.78rem; padding:0.6rem 1.5rem;">
               Register Interest
@@ -883,14 +880,15 @@
   <!-- ══════════════════ FOOTER ══════════════════════ -->
   <footer>
     <div class="container">
+      <img src="img/logo.png" alt="Hannette Staack BJJ" height="70" class="mb-2">
       <div class="footer-brand">HANNETTE <span>STAACK</span></div>
       <div class="social-links">
-        <a href="#" class="social-link" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-        <a href="#" class="social-link" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
-        <a href="#" class="social-link" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+        <a href="https://www.instagram.com/hannettestaack/" target="_blank" class="social-link" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/hannettestaack/" target="_blank" class="social-link" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+        <a href="https://www.facebook.com/hannettestaackbjj/" target="_blank" class="social-link" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
       </div>
       <p class="footer-text">
-        © 2025 Hannette Staack · hannettestaackbjj.com · All rights reserved.
+        © <span id="ano"></span> Hannette Staack · hannettestaackbjj.com · All rights reserved.
       </p>
     </div>
   </footer>
@@ -913,6 +911,8 @@
         if (link.getAttribute('href') === '#' + current) link.classList.add('active');
       });
     });
+  
+  document.getElementById('ano').textContent = new Date().getFullYear();
   </script>
 
 </body>
