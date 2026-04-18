@@ -7,569 +7,207 @@
 
   <!-- Bootstrap 5 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet"/>
+  <!-- Google Fonts — Teko + Barlow Condensed -->
+  <link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;500;600;700&family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet"/>
   <!-- Bootstrap Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/>
 
   <style>
-    /* ─── CSS VARIABLES ─────────────────────────────── */
     :root {
-      --navy:   #0f2440;
-      --blue:   #1aa3d9;
-      --gold:   #f2b90f;
-      --green:  #87bf34;
-      --white:  #ffffff;
-      --navy-light: #162e52;
-      --font-display: 'Bebas Neue', sans-serif;
-      --font-body:    'Barlow', sans-serif;
+      --cream:       #f2ead0;
+      --sand:        #d9cdb8;
+      --sage:        #92a69c;
+      --teal:        #567373;
+      --green:       #4aa744;
+      --blue:        #2abbf0;
+      --gold:        #fccd14;
+      --dark:        #0d0d0d;
+      --white:       #ffffff;
+      --font-display: 'Teko', sans-serif;
+      --font-body:    'Barlow Condensed', sans-serif;
     }
 
-    /* ─── RESET & BASE ──────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { scroll-behavior: smooth; }
-
     body {
-      background: var(--navy);
-      color: var(--white);
+      background: var(--cream);
+      color: var(--dark);
       font-family: var(--font-body);
-      font-size: 1rem;
-      line-height: 1.6;
+      font-size: 1.2rem;
+      line-height: 1.7;
       overflow-x: hidden;
     }
+    h1, h2, h3, h4, h5 { font-family: var(--font-display); letter-spacing: 0.04em; }
 
-    h1, h2, h3, h4, h5 {
-      font-family: var(--font-display);
-      letter-spacing: 0.04em;
-    }
-
-    /* ─── NAVBAR ────────────────────────────────────── */
+    /* ─── NAVBAR ─── */
     .navbar {
-      background: rgba(15, 36, 64, 0.95);
+      background: rgba(86,115,115,0.97);
       backdrop-filter: blur(10px);
-      border-bottom: 2px solid var(--gold);
+      border-bottom: 3px solid var(--gold);
       padding: 0.75rem 0;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+      position: sticky; top: 0; z-index: 1000;
       transition: background 0.3s;
     }
-
-    .navbar-brand {
-      font-family: var(--font-display);
-      font-size: 1.6rem;
-      letter-spacing: 0.1em;
-      color: var(--white) !important;
-    }
-
+    .navbar-brand { font-family: var(--font-display); font-size: 1.8rem; letter-spacing: 0.1em; color: var(--cream) !important; line-height: 1; }
     .navbar-brand span { color: var(--gold); }
-
-    .nav-link {
-      color: rgba(255,255,255,0.85) !important;
-      font-weight: 600;
-      font-size: 0.85rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      padding: 0.5rem 1rem !important;
-      transition: color 0.2s;
-    }
-
+    .nav-link { color: rgba(242,234,208,0.85) !important; font-family: var(--font-body); font-weight: 700; font-size: 1rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.5rem 1rem !important; transition: color 0.2s; }
     .nav-link:hover { color: var(--gold) !important; }
-
     .navbar-toggler { border-color: var(--gold); }
-    .navbar-toggler-icon {
-      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23f2b90f' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-    }
+    .navbar-toggler-icon { background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23fccd14' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e"); }
 
-    /* ─── HERO ──────────────────────────────────────── */
+    /* ─── HERO ─── */
     #hero {
       min-height: 100vh;
-      background:
-        linear-gradient(135deg, rgba(15,36,64,0.92) 40%, rgba(26,163,217,0.18) 100%),
-        url('img/hero-bg.jpg') center/cover no-repeat;
-      display: flex;
-      align-items: center;
-      position: relative;
-      overflow: hidden;
+      background: linear-gradient(135deg, rgba(242,234,208,0.96) 45%, rgba(74,167,68,0.10) 100%);
+      display: flex; align-items: center; position: relative; overflow: hidden;
     }
-
-    /* Decorative diagonal stripe */
     #hero::before {
-      content: '';
-      position: absolute;
-      right: -80px;
-      top: 0;
-      width: 420px;
-      height: 100%;
-      background: linear-gradient(180deg, var(--gold) 0%, var(--blue) 100%);
-      opacity: 0.07;
-      transform: skewX(-8deg);
+      content: ''; position: absolute; right: -80px; top: 0; width: 420px; height: 100%;
+      background: linear-gradient(180deg, var(--gold) 0%, var(--green) 100%);
+      opacity: 0.08; transform: skewX(-8deg);
     }
+    .hero-tag { display: inline-block; background: var(--teal); color: var(--cream); font-family: var(--font-body); font-weight: 700; font-size: 0.9rem; letter-spacing: 0.2em; text-transform: uppercase; padding: 0.35rem 1rem; margin-bottom: 1.2rem; clip-path: polygon(0 0,100% 0,96% 100%,0 100%); }
+    .hero-title { font-family: var(--font-display); font-size: clamp(4rem,10vw,8rem); line-height: 0.88; letter-spacing: 0.03em; color: var(--dark); font-weight: 600; }
+    .hero-title .accent { color: var(--green); }
+    .hero-tagline { font-family: var(--font-display); font-size: 2rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--teal); margin: 0.4rem 0 0.8rem; padding-left: 0.5rem; }
+    .hero-subtitle { font-size: 1.25rem; color: var(--teal); max-width: 500px; margin: 0.3rem 0 2rem; font-style: italic; letter-spacing: 0.03em; padding-left: 0.5rem; }
 
-    .hero-tag {
-      display: inline-block;
-      background: var(--gold);
-      color: var(--navy);
-      font-weight: 700;
-      font-size: 0.75rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      padding: 0.3rem 0.9rem;
-      margin-bottom: 1.2rem;
-      clip-path: polygon(0 0, 100% 0, 96% 100%, 0 100%);
-    }
+    /* ─── BUTTONS ─── */
+    .btn-primary-custom { background: var(--gold); color: var(--dark); border: none; font-family: var(--font-body); font-weight: 700; font-size: 1rem; letter-spacing: 0.18em; text-transform: uppercase; padding: 0.9rem 2.2rem; clip-path: polygon(0 0,100% 0,96% 100%,4% 100%); transition: background 0.2s,transform 0.2s; text-decoration: none; display: inline-block; }
+    .btn-primary-custom:hover { background: var(--green); color: var(--white); transform: translateY(-2px); }
+    .btn-outline-custom { border: 2px solid var(--teal); color: var(--teal); background: transparent; font-family: var(--font-body); font-weight: 700; font-size: 1rem; letter-spacing: 0.18em; text-transform: uppercase; padding: 0.8rem 2rem; transition: all 0.2s; text-decoration: none; display: inline-block; }
+    .btn-outline-custom:hover { background: var(--teal); color: var(--cream); }
 
-    .hero-title {
-      font-family: var(--font-display);
-      font-size: clamp(3.5rem, 9vw, 7rem);
-      line-height: 0.92;
-      letter-spacing: 0.03em;
-      color: var(--white);
-    }
-
-    .hero-title .accent { color: var(--gold); }
-    .hero-title .accent-blue { color: var(--blue); }
-
-    .hero-subtitle {
-      font-size: 1.05rem;
-      color: rgba(255,255,255,0.75);
-      max-width: 480px;
-      margin: 1.5rem 0 2rem;
-      font-style: italic;
-    }
-
-    .hero-stats {
-      display: flex;
-      gap: 2rem;
-      flex-wrap: wrap;
-      margin: 2rem 0;
-    }
-
-    .hero-stat-num {
-      font-family: var(--font-display);
-      font-size: 2.8rem;
-      color: var(--gold);
-      line-height: 1;
-    }
-
-    .hero-stat-label {
-      font-size: 0.75rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.6);
-    }
-
-    .btn-primary-custom {
-      background: var(--gold);
-      color: var(--navy);
-      border: none;
-      font-weight: 700;
-      font-size: 0.85rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      padding: 0.85rem 2rem;
-      clip-path: polygon(0 0, 100% 0, 96% 100%, 4% 100%);
-      transition: background 0.2s, transform 0.2s;
-      text-decoration: none;
-      display: inline-block;
-    }
-
-    .btn-primary-custom:hover {
-      background: var(--blue);
-      color: var(--white);
-      transform: translateY(-2px);
-    }
-
-    .btn-outline-custom {
-      border: 2px solid var(--blue);
-      color: var(--blue);
-      background: transparent;
-      font-weight: 700;
-      font-size: 0.85rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      padding: 0.75rem 1.8rem;
-      transition: all 0.2s;
-      text-decoration: none;
-      display: inline-block;
-    }
-
-    .btn-outline-custom:hover {
-      background: var(--blue);
-      color: var(--white);
-    }
-
-    /* ─── SECTION SHARED ────────────────────────────── */
+    /* ─── SECTIONS ─── */
     section { padding: 5rem 0; }
+    .section-label { font-family: var(--font-body); font-size: 0.9rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--teal); margin-bottom: 0.4rem; }
+    .section-title { font-family: var(--font-display); font-size: clamp(2.5rem,5vw,4rem); font-weight: 600; line-height: 0.95; color: var(--dark); margin-bottom: 1rem; }
+    .section-title-light { color: var(--cream); }
+    .title-bar { width: 60px; height: 4px; background: linear-gradient(90deg,var(--gold),var(--green)); margin-bottom: 2rem; }
 
-    .section-label {
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--blue);
-      margin-bottom: 0.5rem;
-    }
+    /* ─── ABOUT ─── */
+    #about { background: var(--sage); position: relative; overflow: hidden; }
+    #about::after { content: 'BJJ'; position: absolute; right: -20px; bottom: -40px; font-family: var(--font-display); font-size: 20rem; color: rgba(13,13,13,0.04); line-height: 1; pointer-events: none; user-select: none; }
+    .about-img-wrapper { position: relative; }
+    .about-img-wrapper::before { content: ''; position: absolute; top: -12px; left: -12px; right: 12px; bottom: 12px; border: 3px solid var(--gold); z-index: 0; }
+    .about-img-wrapper img { position: relative; z-index: 1; width: 100%; display: block; }
+    .about-text { font-size: 1.2rem; color: rgba(13,13,13,0.8); margin-bottom: 1.5rem; letter-spacing: 0.02em; }
+    .achievement-chip { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(252,205,20,0.2); border: 1px solid rgba(252,205,20,0.6); color: var(--dark); border-radius: 2px; padding: 0.4rem 0.9rem; font-family: var(--font-body); font-size: 0.95rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin: 0.25rem; }
+    .achievement-chip i { color: var(--teal); }
 
-    .section-title {
-      font-family: var(--font-display);
-      font-size: clamp(2.2rem, 5vw, 3.5rem);
-      line-height: 1;
-      color: var(--white);
-      margin-bottom: 1rem;
-    }
+    /* ─── EVENTS ─── */
+    #events { background: var(--cream); }
+    .event-card { background: var(--sand); border-left: 4px solid var(--gold); padding: 1.75rem 2rem; position: relative; overflow: hidden; transition: transform 0.2s,box-shadow 0.2s; }
+    .event-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(86,115,115,0.2); }
+    .event-card::before { content: ''; position: absolute; top: 0; right: 0; width: 4px; height: 100%; background: var(--green); }
+    .event-badge { background: var(--gold); color: var(--dark); font-family: var(--font-display); font-size: 1rem; letter-spacing: 0.15em; padding: 0.15rem 0.8rem; text-transform: uppercase; margin-bottom: 0.75rem; display: inline-block; }
+    .event-date { font-family: var(--font-display); font-size: 1.8rem; font-weight: 500; color: var(--teal); margin-bottom: 0.2rem; }
+    .event-name { font-family: var(--font-display); font-size: 2rem; font-weight: 600; line-height: 1.05; color: var(--dark); margin-bottom: 0.5rem; }
+    .event-detail { font-family: var(--font-body); font-size: 1.1rem; color: rgba(13,13,13,0.6); letter-spacing: 0.02em; }
+    .event-detail i { color: var(--teal); margin-right: 0.3rem; }
 
-    .title-bar {
-      width: 60px;
-      height: 4px;
-      background: linear-gradient(90deg, var(--gold), var(--green));
-      margin-bottom: 2rem;
-    }
+    /* ─── EVENTS CAROUSEL ─── */
+    #eventsCarousel { padding-bottom: 3rem; }
+    #eventsCarousel .carousel-inner { overflow: visible; }
+    #eventsCarousel { overflow: hidden; }
+    #eventsCarousel .carousel-item { transition: transform 0.5s ease; }
+    #eventsCarousel .carousel-item-next,
+    #eventsCarousel .carousel-item-prev { opacity: 0.4; transform: scale(0.95); }
+    #eventsCarousel .carousel-indicators { bottom: 0; }
+    #eventsCarousel .carousel-indicators button { background-color: var(--teal); width: 10px; height: 10px; border-radius: 50%; border: none; opacity: 0.35; }
+    #eventsCarousel .carousel-indicators button.active { opacity: 1; background-color: var(--gold); }
+    #eventsCarousel .carousel-control-prev, #eventsCarousel .carousel-control-next { width: 5%; opacity: 0.5; }
+    #eventsCarousel .carousel-control-prev-icon, #eventsCarousel .carousel-control-next-icon { filter: invert(1) sepia(1) saturate(2) hue-rotate(10deg); }
+    #eventsCarousel .carousel-control-prev:hover, #eventsCarousel .carousel-control-next:hover { opacity: 1; }
 
-    /* ─── ABOUT ─────────────────────────────────────── */
-    #about {
-      background: var(--navy-light);
-      position: relative;
-      overflow: hidden;
-    }
+    /* ─── SERVICES ─── */
+    #services { background: var(--teal); }
+    .service-card { background: var(--cream); border-top: 3px solid transparent; padding: 2rem 1.75rem; height: 100%; transition: border-color 0.2s,transform 0.2s,box-shadow 0.2s; cursor: pointer; }
+    .service-card:hover { border-top-color: var(--gold); transform: translateY(-5px); box-shadow: 0 16px 48px rgba(13,13,13,0.15); }
+    .service-icon { width: 50px; height: 50px; background: linear-gradient(135deg,var(--blue),var(--green)); display: flex; align-items: center; justify-content: center; font-size: 1.3rem; color: var(--white); margin-bottom: 1.2rem; clip-path: polygon(0 0,100% 0,100% 75%,85% 100%,0 100%); }
+    .service-title { font-family: var(--font-display); font-size: 1.6rem; font-weight: 600; color: var(--dark); margin-bottom: 0.5rem; letter-spacing: 0.03em; }
+    .service-desc { font-family: var(--font-body); font-size: 1.1rem; color: rgba(13,13,13,0.65); line-height: 1.6; }
+    .service-more { font-family: var(--font-body); font-size: 0.95rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); margin-top: 1rem; transition: color 0.2s; }
+    .service-card:hover .service-more { color: #b8860b; }
 
-    #about::after {
-      content: 'BJJ';
-      position: absolute;
-      right: -20px;
-      bottom: -40px;
-      font-family: var(--font-display);
-      font-size: 20rem;
-      color: rgba(26,163,217,0.04);
-      line-height: 1;
-      pointer-events: none;
-      user-select: none;
-    }
+    /* ─── SERVICE MODALS ─── */
+    .service-modal-content { background: var(--cream); border: none; border-radius: 0; border-top: 4px solid var(--gold); }
+    .service-modal-header { background: var(--teal); border-bottom: none; padding: 1.5rem 2rem; display: flex; align-items: center; justify-content: space-between; }
+    .service-modal-label { font-family: var(--font-body); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(242,234,208,0.6); margin-bottom: 0.2rem; }
+    .service-modal-title { font-family: var(--font-display); font-size: 2.5rem; font-weight: 600; color: var(--cream); line-height: 1; margin: 0; }
+    .service-modal-close { background: transparent; border: 1px solid rgba(242,234,208,0.3); color: var(--cream); width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.2s; flex-shrink: 0; }
+    .service-modal-close:hover { background: var(--gold); border-color: var(--gold); color: var(--dark); }
+    .service-modal-body { padding: 2.5rem 2rem; background: var(--cream); }
+    .service-modal-text { font-family: var(--font-body); font-size: 1.15rem; color: rgba(13,13,13,0.8); line-height: 1.7; letter-spacing: 0.02em; margin-bottom: 0; }
+    .service-modal-divider { width: 50px; height: 3px; background: linear-gradient(90deg,var(--gold),var(--green)); margin: 1.75rem 0; }
+    .service-modal-testimonials-label { font-family: var(--font-body); font-size: 0.9rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--teal); margin-bottom: 1.2rem; }
+    .service-testimonial { background: var(--sand); border-left: 3px solid var(--gold); padding: 1rem 1.25rem; margin-bottom: 1rem; }
+    .service-testimonial-quote { font-family: var(--font-body); font-size: 1.1rem; font-style: italic; color: rgba(13,13,13,0.8); line-height: 1.6; margin-bottom: 0.75rem; }
+    .service-testimonial-author { display: flex; align-items: center; gap: 0.75rem; }
+    .service-testimonial-name { font-family: var(--font-body); font-size: 1rem; font-weight: 700; letter-spacing: 0.05em; color: var(--dark); }
+    .service-testimonial-role { font-family: var(--font-body); font-size: 0.95rem; color: var(--teal); letter-spacing: 0.05em; }
+    .service-testimonial-role::before { content: '·'; margin-right: 0.75rem; color: var(--sage); }
+    .service-modal-img { width: 100%; height: 420px; object-fit: cover; object-position: center; display: block; }
+    .service-modal-img-placeholder { width: 100%; height: 420px; background: var(--sand); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.75rem; color: rgba(13,13,13,0.35); font-family: var(--font-body); font-size: 1rem; letter-spacing: 0.1em; text-transform: uppercase; }
 
-    .about-img-wrapper {
-      position: relative;
-    }
+    /* ─── CONTACT ─── */
+    #contact { background: var(--sand); }
+    .contact-wrapper { background: var(--cream); border: 1px solid rgba(86,115,115,0.25); padding: 3rem; position: relative; overflow: hidden; }
+    .contact-wrapper::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg,var(--gold),var(--green),var(--blue)); }
+    .contact-heading { font-family: var(--font-display); font-size: 2.2rem; font-weight: 600; color: var(--teal); margin-bottom: 1rem; }
+    .contact-intro { font-family: var(--font-body); font-size: 1.15rem; color: rgba(13,13,13,0.65); margin-bottom: 2rem; letter-spacing: 0.02em; }
+    .form-label { font-family: var(--font-body); font-size: 0.95rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--teal); margin-bottom: 0.4rem; }
+    .form-control, .form-select { background: var(--sand) !important; border: 1px solid rgba(86,115,115,0.3) !important; color: var(--dark) !important; border-radius: 0 !important; padding: 0.75rem 1rem; font-family: var(--font-body); font-size: 1.1rem; transition: border-color 0.2s,box-shadow 0.2s; }
+    .form-control::placeholder { color: rgba(13,13,13,0.35); }
+    .form-control:focus, .form-select:focus { border-color: var(--teal) !important; box-shadow: 0 0 0 3px rgba(86,115,115,0.15) !important; outline: none; }
+    .form-select option { background: var(--cream); color: var(--dark); }
+    .contact-info-item { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.5rem; }
+    .contact-icon { width: 44px; height: 44px; background: rgba(86,115,115,0.12); border: 1px solid rgba(86,115,115,0.3); display: flex; align-items: center; justify-content: center; color: var(--teal); font-size: 1.1rem; flex-shrink: 0; }
+    .contact-info-label { font-family: var(--font-body); font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--teal); margin-bottom: 0.2rem; }
+    .contact-info-value { font-family: var(--font-body); font-size: 1.1rem; color: var(--dark); }
 
-    .about-img-wrapper::before {
-      content: '';
-      position: absolute;
-      top: -12px;
-      left: -12px;
-      right: 12px;
-      bottom: 12px;
-      border: 3px solid var(--gold);
-      z-index: 0;
-    }
+    /* ─── PARTNERS ─── */
+    #partners { background: var(--cream); }
+    .partner-item { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 1.25rem 1.5rem; filter: grayscale(30%); opacity: 0.85; transition: filter 0.2s,opacity 0.2s,transform 0.2s; }
+    .partner-item:hover { filter: grayscale(0%); opacity: 1; transform: translateY(-3px); }
+    .partner-item img { max-height: 70px; max-width: 160px; width: auto; object-fit: contain; }
+    .partner-item-name { font-family: var(--font-body); font-size: 0.95rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal); margin-top: 0.6rem; text-align: center; }
+    .partner-item-role { font-family: var(--font-body); font-size: 0.85rem; color: var(--teal); opacity: 0.65; letter-spacing: 0.05em; text-align: center; }
 
-    .about-img-wrapper img {
-      position: relative;
-      z-index: 1;
-      width: 100%;
-      display: block;
-    }
-
-    .about-img-placeholder {
-      position: relative;
-      z-index: 1;
-      width: 100%;
-      height: 460px;
-      background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      color: rgba(255,255,255,0.3);
-      font-size: 0.85rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      gap: 0.5rem;
-    }
-
-    .about-img-placeholder i { font-size: 3rem; opacity: 0.3; }
-
-    .achievement-chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: rgba(242,185,15,0.12);
-      border: 1px solid rgba(242,185,15,0.3);
-      color: var(--gold);
-      border-radius: 2px;
-      padding: 0.4rem 0.9rem;
-      font-size: 0.8rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin: 0.25rem;
-    }
-
-    /* ─── EVENTS ────────────────────────────────────── */
-    #events { background: var(--navy); }
-
-    .event-card {
-      background: var(--navy-light);
-      border-left: 4px solid var(--gold);
-      padding: 1.5rem 2rem;
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    .event-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 40px rgba(26,163,217,0.15);
-    }
-
-    .event-card::before {
-      content: '';
-      position: absolute;
-      top: 0; right: 0;
-      width: 4px;
-      height: 100%;
-      background: var(--green);
-    }
-
-    .event-badge {
-      background: var(--gold);
-      color: var(--navy);
-      font-family: var(--font-display);
-      font-size: 0.7rem;
-      letter-spacing: 0.15em;
-      padding: 0.2rem 0.7rem;
-      text-transform: uppercase;
-      margin-bottom: 0.75rem;
-      display: inline-block;
-    }
-
-    .event-date {
-      font-family: var(--font-display);
-      font-size: 1.5rem;
-      color: var(--blue);
-      margin-bottom: 0.25rem;
-    }
-
-    .event-name {
-      font-family: var(--font-display);
-      font-size: 1.6rem;
-      line-height: 1.1;
-      color: var(--white);
-      margin-bottom: 0.5rem;
-    }
-
-    .event-detail {
-      font-size: 0.85rem;
-      color: rgba(255,255,255,0.6);
-    }
-
-    .event-detail i { color: var(--blue); margin-right: 0.3rem; }
-
-    /* ─── SERVICES ──────────────────────────────────── */
-    #services { background: var(--navy-light); }
-
-    .service-card {
-      background: var(--navy);
-      border-top: 3px solid transparent;
-      padding: 2rem 1.75rem;
-      height: 100%;
-      transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
-      position: relative;
-    }
-
-    .service-card:hover {
-      border-top-color: var(--gold);
-      transform: translateY(-5px);
-      box-shadow: 0 16px 48px rgba(0,0,0,0.3);
-    }
-
-    .service-icon {
-      width: 50px;
-      height: 50px;
-      background: linear-gradient(135deg, var(--blue), var(--green));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.3rem;
-      color: var(--white);
-      margin-bottom: 1.2rem;
-      clip-path: polygon(0 0, 100% 0, 100% 75%, 85% 100%, 0 100%);
-    }
-
-    .service-title {
-      font-family: var(--font-display);
-      font-size: 1.25rem;
-      color: var(--white);
-      margin-bottom: 0.5rem;
-    }
-
-    .service-desc {
-      font-size: 0.88rem;
-      color: rgba(255,255,255,0.6);
-      line-height: 1.6;
-    }
-
-    /* ─── CONTACT ───────────────────────────────────── */
-    #contact { background: var(--navy); }
-
-    .contact-wrapper {
-      background: var(--navy-light);
-      border: 1px solid rgba(26,163,217,0.2);
-      padding: 3rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .contact-wrapper::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%;
-      height: 4px;
-      background: linear-gradient(90deg, var(--gold), var(--blue), var(--green));
-    }
-
-    .form-label {
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.65);
-      margin-bottom: 0.4rem;
-    }
-
-    .form-control, .form-select {
-      background: rgba(255,255,255,0.05) !important;
-      border: 1px solid rgba(26,163,217,0.25) !important;
-      color: var(--white) !important;
-      border-radius: 0 !important;
-      padding: 0.75rem 1rem;
-      font-family: var(--font-body);
-      transition: border-color 0.2s, box-shadow 0.2s;
-    }
-
-    .form-control::placeholder { color: rgba(255,255,255,0.3); }
-
-    .form-control:focus, .form-select:focus {
-      border-color: var(--gold) !important;
-      box-shadow: 0 0 0 3px rgba(242,185,15,0.15) !important;
-      outline: none;
-    }
-
-    .form-select option { background: var(--navy); color: var(--white); }
-
-    .contact-info-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 1rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .contact-icon {
-      width: 40px;
-      height: 40px;
-      background: rgba(26,163,217,0.15);
-      border: 1px solid rgba(26,163,217,0.3);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--blue);
-      font-size: 1rem;
-      flex-shrink: 0;
-    }
-
-    .contact-info-label {
-      font-size: 0.72rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.45);
-      margin-bottom: 0.2rem;
-    }
-
-    .contact-info-value {
-      font-size: 0.95rem;
-      color: var(--white);
-    }
-
-    /* ─── FOOTER ────────────────────────────────────── */
-    footer {
-      background: #08172a;
-      border-top: 2px solid rgba(242,185,15,0.3);
-      padding: 2.5rem 0;
-      text-align: center;
-    }
-
-    .footer-brand {
-      font-family: var(--font-display);
-      font-size: 1.8rem;
-      letter-spacing: 0.1em;
-      color: var(--white);
-      margin-bottom: 0.5rem;
-    }
-
+    /* ─── FOOTER ─── */
+    footer { background: var(--dark); border-top: 3px solid var(--gold); padding: 2.5rem 0; text-align: center; }
+    .footer-brand { font-family: var(--font-display); font-size: 2rem; letter-spacing: 0.1em; color: var(--cream); margin-bottom: 0.5rem; }
     .footer-brand span { color: var(--gold); }
-
-    .footer-text {
-      font-size: 0.82rem;
-      color: rgba(255,255,255,0.4);
-    }
-
+    .footer-text { font-family: var(--font-body); font-size: 1rem; color: rgba(242,234,208,0.4); letter-spacing: 0.05em; }
     .social-links { margin: 1rem 0; }
+    .social-link { display: inline-flex; align-items: center; justify-content: center; width: 42px; height: 42px; border: 1px solid rgba(242,234,208,0.2); color: rgba(242,234,208,0.5); font-size: 1.1rem; margin: 0 0.25rem; transition: all 0.2s; text-decoration: none; }
+    .social-link:hover { background: var(--gold); border-color: var(--gold); color: var(--dark); }
 
-    .social-link {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 38px;
-      height: 38px;
-      border: 1px solid rgba(255,255,255,0.15);
-      color: rgba(255,255,255,0.5);
-      font-size: 0.95rem;
-      margin: 0 0.25rem;
-      transition: all 0.2s;
-      text-decoration: none;
-    }
-
-    .social-link:hover {
-      background: var(--gold);
-      border-color: var(--gold);
-      color: var(--navy);
-    }
-
-    /* ─── ANIMATIONS ────────────────────────────────── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    .hero-content > * {
-      animation: fadeUp 0.7s ease both;
-    }
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeUp { from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }
+    .hero-content > * { animation: fadeUp 0.7s ease both; }
     .hero-content > *:nth-child(1) { animation-delay: 0.1s; }
     .hero-content > *:nth-child(2) { animation-delay: 0.25s; }
     .hero-content > *:nth-child(3) { animation-delay: 0.4s; }
     .hero-content > *:nth-child(4) { animation-delay: 0.55s; }
     .hero-content > *:nth-child(5) { animation-delay: 0.7s; }
 
-    /* ─── RESPONSIVE HELPERS ────────────────────────── */
+    /* ─── RESPONSIVE ─── */
     @media (max-width: 768px) {
       .contact-wrapper { padding: 2rem 1.5rem; }
-      .hero-stats { gap: 1.2rem; }
-      .hero-stat-num { font-size: 2rem; }
+      .hero-title { font-size: clamp(3.2rem,12vw,5rem); }
     }
   </style>
 </head>
-
 <body>
 
-  <!-- ══════════════════ NAVBAR ══════════════════════ -->
+  <!-- NAVBAR -->
   <nav class="navbar navbar-expand-lg">
     <div class="container">
       <a class="navbar-brand" href="#hero">
         <img src="img/logo.png" alt="Hannette Staack BJJ" height="48" class="me-2">HANNETTE <span>STAACK</span>
       </a>
-      <button class="navbar-toggler" type="button"
-              data-bs-toggle="collapse" data-bs-target="#navMenu"
-              aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navMenu">
@@ -578,97 +216,63 @@
           <li class="nav-item"><a class="nav-link" href="#events">Events</a></li>
           <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
           <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="#partners">Partners</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <!-- ══════════════════ HERO ════════════════════════ -->
+  <!-- HERO -->
   <section id="hero">
     <div class="container">
       <div class="row align-items-center">
         <div class="col-lg-7 hero-content">
-          <div class="hero-tag">7× World Champion · ADCC Champion</div>
-          <h1 class="hero-title">
-            HANNETTE<br>
-            <span class="accent">STAACK</span><br>
-            <span class="accent-blue" style="font-size: 55%;">BJJ Black Belt</span>
-          </h1>
-          <p class="hero-subtitle">
-            Co-founder of Brazil-021 · Competitor · Coach · Legend.<br>
-            Elevating the female presence in Jiu-Jitsu worldwide.
-          </p>
-          <div class="hero-stats">
-            <div>
-              <div class="hero-stat-num">7×</div>
-              <div class="hero-stat-label">World Titles</div>
-            </div>
-            <div>
-              <div class="hero-stat-num">1×</div>
-              <div class="hero-stat-label">ADCC Champion</div>
-            </div>
-            <div>
-              <div class="hero-stat-num">BJJ</div>
-              <div class="hero-stat-label">Black Belt</div>
-            </div>
-          </div>
+          <div class="hero-tag">7× World Champion · 3× ADCC Champion</div>
+          <h1 class="hero-title">HANNETTE<br><span class="accent">STAACK</span></h1>
+          <p class="hero-tagline">Athlete · Coach · Pioneer</p>
+          <p class="hero-subtitle">A Legacy of Strength. A Culture of Growth.</p>
           <div class="d-flex flex-wrap gap-3">
-            <a href="#services" class="btn-primary-custom">Book a Session</a>
+            <a href="#contact" class="btn-primary-custom">Contact me</a>
             <a href="#about" class="btn-outline-custom">Learn More</a>
           </div>
         </div>
-        <!-- Optional: place hero photo on right col -->
         <div class="col-lg-5 d-none d-lg-block" style="position:relative;">
           <img src="img/hannette-hero.png" alt="Hannette Staack"
-            style="position:absolute; top:-700px; left:-300px; height:1500px; width:auto; mix-blend-mode:screen; object-fit:contain;">
+            style="position:absolute; top:-700px; left:-300px; height:1500px; width:auto; mix-blend-mode:multiply; object-fit:contain; filter:brightness(0.88) contrast(1.05);">
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ══════════════════ ABOUT ═══════════════════════ -->
+  <!-- ABOUT -->
   <section id="about">
     <div class="container">
       <div class="row align-items-center g-5">
-
-        <!-- Image -->
         <div class="col-lg-5">
           <div class="about-img-wrapper">
-            <!-- Replace with real photo: <img src="img/hannette-about.jpg" alt="Hannette Staack"> -->
             <img src="img/hannette-about.jpg" alt="Hannette Staack" class="img-fluid">
           </div>
         </div>
-
-        <!-- Text -->
         <div class="col-lg-7">
           <p class="section-label">About the Champion</p>
           <h2 class="section-title">More Than a Fighter.<br>A Movement.</h2>
           <div class="title-bar"></div>
-          <p style="color:rgba(255,255,255,0.75); margin-bottom:1.5rem;">
-            Hannette Staack is a Brazilian Jiu-Jitsu black belt, co-founder of
-            <strong style="color:var(--gold)">Brazil-021 School of Jiu-Jitsu</strong>,
-            and one of the greatest competitors in the sport's history. With seven world
-            titles and an ADCC championship, her legacy on the mats is unmatched.
-          </p>
-          <p style="color:rgba(255,255,255,0.75); margin-bottom:2rem;">
-            Beyond her achievements, Hannette is recognized as an exceptional teacher
-            and a key figure in strengthening the female presence in Jiu-Jitsu — inspiring
-            a new generation of athletes around the world.
-          </p>
+          <p class="about-text">Hannette Staack is a Brazilian Jiu-Jitsu black belt, co-founder of <strong style="color:var(--dark);">Brazil-021 School of Jiu-Jitsu</strong>, and one of the greatest competitors in the sport's history. With seven world titles and an ADCC championship, her legacy on the mats is unmatched.</p>
+          <p class="about-text" style="margin-bottom:2rem;">Beyond her achievements, Hannette is recognized as an exceptional teacher and a key figure in strengthening the female presence in Jiu-Jitsu — inspiring a new generation of athletes around the world.</p>
           <div>
-            <span class="achievement-chip"><i class="bi bi-trophy-fill"></i> 7× World Champion</span>
-            <span class="achievement-chip"><i class="bi bi-award-fill"></i> ADCC Champion</span>
+            <span class="achievement-chip"><i class="bi bi-trophy-fill"></i> 7× Jiu-Jitsu World Champion (Gi)</span>
+            <span class="achievement-chip"><i class="bi bi-award-fill"></i> 3× ADCC Champion</span>
+            <span class="achievement-chip"><i class="bi bi-award-fill"></i> IBJJF Hall of Fame Inductee</span>
+            <span class="achievement-chip"><i class="bi bi-award-fill"></i> Professional MMA Fighter (3–1–0)</span>
             <span class="achievement-chip"><i class="bi bi-people-fill"></i> Brazil-021 Co-Founder</span>
             <span class="achievement-chip"><i class="bi bi-star-fill"></i> BJJ Black Belt</span>
-            <span class="achievement-chip"><i class="bi bi-geo-alt-fill"></i> Based in Chicago</span>
           </div>
         </div>
-
       </div>
     </div>
   </section>
 
-  <!-- ══════════════════ EVENTS ══════════════════════ -->
+  <!-- EVENTS -->
   <section id="events">
     <div class="container">
       <div class="text-center mb-5">
@@ -676,110 +280,309 @@
         <h2 class="section-title">Upcoming Events</h2>
         <div class="title-bar mx-auto"></div>
       </div>
-
-      <div class="row g-4 justify-content-center">
-
-        <!-- Event 1 -->
-        <div class="col-lg-6">
-          <div class="event-card">
-            <div class="event-badge">Women's Camp</div>
-            <div class="event-date">June 26 – 27, 2025</div>
-            <div class="event-name">Rolling with the Ladies<br>Jiu-Jitsu Camp</div>
-            <p class="event-detail mt-2">
-              <i class="bi bi-people-fill"></i>
-              Featuring World Champions <strong>Hannette Staack</strong> &amp; <strong>Nathalie Ribeiro</strong>
-            </p>
-            <p class="event-detail">
-              <i class="bi bi-geo-alt-fill"></i>
-              Monroe Jiu Jitsu — 11 E Second St, Monroe, MI 48161
-            </p>
-            <a href="#contact" class="btn-primary-custom mt-3" style="font-size:0.78rem; padding:0.6rem 1.5rem;">
-              Register Interest
-            </a>
+      <div id="eventsCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000" data-bs-wrap="true" style="padding: 0 8%;">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#eventsCarousel" data-bs-slide-to="0" class="active" aria-current="true"></button>
+          <button type="button" data-bs-target="#eventsCarousel" data-bs-slide-to="1"></button>
+          <button type="button" data-bs-target="#eventsCarousel" data-bs-slide-to="2"></button>
+          <button type="button" data-bs-target="#eventsCarousel" data-bs-slide-to="3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="row g-4 justify-content-center"><div class="col-lg-9">
+              <div class="event-card">
+                <div class="event-badge">Hannette Staack's Seminar</div>
+                <div class="event-date">May 16, 2026 - 11:00 AM</div>
+                <div class="event-name">BELLINGHAM BJJ SEMINAR<br>with Hannette Staack</div>
+                <p class="event-detail mt-2"><i class="bi bi-people-fill"></i> Open to all levels — gi</p>
+                <p class="event-detail"><i class="bi bi-geo-alt-fill"></i> Monroe Jiu Jitsu — 11 E Second St, Monroe, MI 48161</p>
+                <p class="event-detail"><i class="bi bi-currency-dollar"></i> 50 for member $60 non member</p>
+                <a href="https://bellinghambjj.com/hannette/" target="_blank" class="btn-primary-custom mt-3" style="font-size:0.95rem; padding:0.6rem 1.5rem;">Register Interest</a>
+              </div>
+            </div></div>
+          </div>
+          <div class="carousel-item">
+            <div class="row g-4 justify-content-center"><div class="col-lg-9">
+              <div class="event-card">
+                <div class="event-badge">Women's Camp</div>
+                <div class="event-date">June 26 – 27, 2026</div>
+                <div class="event-name">ROLLING WITH THE LADIES<br>Jiu-Jitsu Camp</div>
+                <p class="event-detail mt-2"><i class="bi bi-people-fill"></i> Featuring World Champions <strong>Hannette Staack</strong> &amp; <strong>Nathalie Ribeiro</strong></p>
+                <p class="event-detail"><i class="bi bi-geo-alt-fill"></i> Monroe Jiu Jitsu — 11 E Second St, Monroe, MI 48161</p>
+                <p class="event-detail"><i class="bi bi-currency-dollar"></i> 00 per person</p>
+                <a href="#contact" class="btn-primary-custom mt-3" style="font-size:0.95rem; padding:0.6rem 1.5rem;">Register Interest</a>
+              </div>
+            </div></div>
+          </div>
+          <div class="carousel-item">
+            <div class="row g-4 justify-content-center"><div class="col-lg-9">
+              <div class="event-card">
+                <div class="event-badge">Workshop</div>
+                <div class="event-date">October 5, 2025</div>
+                <div class="event-name">Elite Performance<br>Workshop</div>
+                <p class="event-detail mt-2"><i class="bi bi-lightning-charge-fill"></i> Competition preparation &amp; peak performance</p>
+                <p class="event-detail"><i class="bi bi-geo-alt-fill"></i> Location TBA</p>
+                <p class="event-detail"><i class="bi bi-currency-dollar"></i> $00 per person</p>
+                <a href="#contact" class="btn-primary-custom mt-3" style="font-size:0.95rem; padding:0.6rem 1.5rem;">Register Interest</a>
+              </div>
+            </div></div>
+          </div>
+          <div class="carousel-item">
+            <div class="row g-4 justify-content-center"><div class="col-lg-9">
+              <div class="event-card" style="border-left-color:var(--teal); opacity:0.6;">
+                <div class="event-badge" style="background:var(--teal); color:var(--cream);">Coming Soon</div>
+                <div class="event-date" style="color:rgba(13,13,13,0.4);">More events coming</div>
+                <div class="event-name" style="color:rgba(13,13,13,0.4);">Stay Tuned</div>
+                <p class="event-detail mt-2"><i class="bi bi-bell-fill"></i> Follow on social media or subscribe below for updates.</p>
+              </div>
+            </div></div>
           </div>
         </div>
-
-        <!-- Placeholder for next event -->
-        <div class="col-lg-6">
-          <div class="event-card" style="border-left-color: var(--blue); opacity:0.55;">
-            <div class="event-badge" style="background:var(--blue);">Coming Soon</div>
-            <div class="event-date" style="color:rgba(255,255,255,0.4);">More events coming</div>
-            <div class="event-name" style="color:rgba(255,255,255,0.4);">Stay Tuned</div>
-            <p class="event-detail mt-2">
-              <i class="bi bi-bell-fill"></i>
-              Follow on social media or subscribe below for updates.
-            </p>
-          </div>
-        </div>
-
+        <button class="carousel-control-prev" type="button" data-bs-target="#eventsCarousel" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button>
+        <button class="carousel-control-next" type="button" data-bs-target="#eventsCarousel" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button>
       </div>
     </div>
   </section>
 
-  <!-- ══════════════════ SERVICES ════════════════════ -->
+  <!-- SERVICES -->
   <section id="services">
     <div class="container">
       <div class="text-center mb-5">
-        <p class="section-label">What We Offer</p>
-        <h2 class="section-title">Training & Services</h2>
+        <p class="section-label" style="color:var(--cream);">What We Offer</p>
+        <h2 class="section-title section-title-light">Training & Services</h2>
         <div class="title-bar mx-auto"></div>
       </div>
-
       <div class="row g-4">
-
         <div class="col-sm-6 col-lg-4">
-          <div class="service-card">
+          <div class="service-card" data-bs-toggle="modal" data-bs-target="#modalSeminars">
             <div class="service-icon"><i class="bi bi-people"></i></div>
             <div class="service-title">Seminars & Workshops</div>
             <p class="service-desc">Immersive group learning experiences led by Hannette — covering technique, competition mindset, and game strategy.</p>
+            <div class="service-more">Learn more <i class="bi bi-arrow-right"></i></div>
           </div>
         </div>
-
         <div class="col-sm-6 col-lg-4">
-          <div class="service-card">
+          <div class="service-card" data-bs-toggle="modal" data-bs-target="#modalElite">
             <div class="service-icon"><i class="bi bi-lightning-charge-fill"></i></div>
             <div class="service-title">Elite Peak Performance</div>
             <p class="service-desc">High-performance training programs designed for serious competitors ready to elevate every aspect of their game.</p>
+            <div class="service-more">Learn more <i class="bi bi-arrow-right"></i></div>
           </div>
         </div>
-
         <div class="col-sm-6 col-lg-4">
-          <div class="service-card">
+          <div class="service-card" data-bs-toggle="modal" data-bs-target="#modalPrivate">
             <div class="service-icon"><i class="bi bi-person-check-fill"></i></div>
             <div class="service-title">Private Classes</div>
             <p class="service-desc">One-on-one sessions tailored entirely to your goals, skill level, and competition schedule.</p>
+            <div class="service-more">Learn more <i class="bi bi-arrow-right"></i></div>
           </div>
         </div>
-
         <div class="col-sm-6 col-lg-4">
-          <div class="service-card">
+          <div class="service-card" data-bs-toggle="modal" data-bs-target="#modalCamps">
             <div class="service-icon"><i class="bi bi-building"></i></div>
-            <div class="service-title">Group Classes</div>
-            <p class="service-desc">Train with Hannette at her academy in Chicago — structured group classes for all levels in a welcoming environment.</p>
+            <div class="service-title">Camps</div>
+            <p class="service-desc">Structured group classes for all levels in a welcoming environment focused on technical growth, confidence, and steady progression on the mats.</p>
+            <div class="service-more">Learn more <i class="bi bi-arrow-right"></i></div>
           </div>
         </div>
-
         <div class="col-sm-6 col-lg-4">
-          <div class="service-card">
+          <div class="service-card" data-bs-toggle="modal" data-bs-target="#modalCoaching">
             <div class="service-icon"><i class="bi bi-graph-up-arrow"></i></div>
             <div class="service-title">Professional Coaching (1:1)</div>
             <p class="service-desc">Long-term strategic coaching for athletes aiming for the podium — from game planning to mental conditioning.</p>
+            <div class="service-more">Learn more <i class="bi bi-arrow-right"></i></div>
           </div>
         </div>
-
         <div class="col-sm-6 col-lg-4">
-          <div class="service-card">
+          <div class="service-card" data-bs-toggle="modal" data-bs-target="#modalCommentary">
             <div class="service-icon"><i class="bi bi-mic-fill"></i></div>
             <div class="service-title">Sports Commentary</div>
             <p class="service-desc">Professional on-air and event commentary drawing on Hannette's deep experience as an elite competitor and coach.</p>
+            <div class="service-more">Learn more <i class="bi bi-arrow-right"></i></div>
           </div>
         </div>
-
       </div>
     </div>
   </section>
 
-  <!-- ══════════════════ CONTACT ═════════════════════ -->
+  <!-- MODAL: Seminars -->
+  <div class="modal fade" id="modalSeminars" tabindex="-1" aria-labelledby="modalSeminarsLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content service-modal-content">
+        <div class="modal-header service-modal-header">
+          <div>
+            <div class="service-modal-label">What We Offer</div>
+            <h2 class="service-modal-title" id="modalSeminarsLabel">Seminars & Workshops</h2>
+          </div>
+          <button type="button" class="service-modal-close" data-bs-dismiss="modal"><i class="bi bi-x-lg"></i></button>
+        </div>
+        <div class="modal-body service-modal-body">
+          <div class="row g-5 align-items-start">
+            <div class="col-lg-6">
+              <p class="service-modal-text">These sessions are built to create meaningful learning experiences that go beyond step-by-step instruction. I focus on developing a clear and structured environment where students of different levels can learn effectively together. Each seminar is adapted to the needs of the hosting academy and may include technical breakdowns, focused drilling, situational training, and open discussion. The goal is to help students not only learn techniques, but also understand the principles behind them so they can apply and evolve their Jiu-Jitsu with confidence.</p>
+              <div class="service-modal-divider"></div>
+              <div class="service-modal-testimonials-label">What People Are Saying</div>
+              <div class="service-testimonial">
+                <p class="service-testimonial-quote">"One of the most well-structured seminars I've attended. Everything was explained clearly and built up in a way that made complex details easy to understand and apply."</p>
+                <div class="service-testimonial-author">
+                  <span class="service-testimonial-name">Cebolinha</span>
+                  <span class="service-testimonial-role">Black Belt Student</span>
+                </div>
+              </div>
+              <div class="service-testimonial">
+                <p class="service-testimonial-quote">"Great balance between technique, drilling, and live application. Everyone in the room, from beginners to advanced students, was fully engaged the entire time."</p>
+                <div class="service-testimonial-author">
+                  <span class="service-testimonial-name">Cascão</span>
+                  <span class="service-testimonial-role">Academy Owner</span>
+                </div>
+              </div>
+              <a href="#contact" class="btn-primary-custom mt-4" data-bs-dismiss="modal" style="clip-path:none; padding:0.85rem 2rem;">Book a Seminar <i class="bi bi-arrow-right ms-1"></i></a>
+            </div>
+            <div class="col-lg-6">
+              <img src="img/seminar-photo.jpg" alt="Hannette Staack Seminar" class="service-modal-img">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: Elite -->
+  <div class="modal fade" id="modalElite" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content service-modal-content">
+        <div class="modal-header service-modal-header">
+          <div><div class="service-modal-label">What We Offer</div><h2 class="service-modal-title">Elite Peak Performance</h2></div>
+          <button type="button" class="service-modal-close" data-bs-dismiss="modal"><i class="bi bi-x-lg"></i></button>
+        </div>
+        <div class="modal-body service-modal-body">
+          <div class="row g-5 align-items-start">
+            <div class="col-lg-6">
+              <p class="service-modal-text">High-performance training programs designed for serious competitors ready to elevate every aspect of their game. These programs combine technical refinement, strategic game planning, and mental conditioning to prepare athletes for the highest level of competition.</p>
+              <div class="service-modal-divider"></div>
+              <div class="service-modal-testimonials-label">What People Are Saying</div>
+              <div class="service-testimonial">
+                <p class="service-testimonial-quote">"Add your testimonial here."</p>
+                <div class="service-testimonial-author"><span class="service-testimonial-name">Student Name</span><span class="service-testimonial-role">Belt & Role</span></div>
+              </div>
+              <a href="#contact" class="btn-primary-custom mt-4" data-bs-dismiss="modal" style="clip-path:none; padding:0.85rem 2rem;">Get Started <i class="bi bi-arrow-right ms-1"></i></a>
+            </div>
+            <div class="col-lg-6"><div class="service-modal-img-placeholder"><i class="bi bi-image" style="font-size:2.5rem; opacity:0.3;"></i><span>Add photo here</span></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: Private -->
+  <div class="modal fade" id="modalPrivate" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content service-modal-content">
+        <div class="modal-header service-modal-header">
+          <div><div class="service-modal-label">What We Offer</div><h2 class="service-modal-title">Private Classes</h2></div>
+          <button type="button" class="service-modal-close" data-bs-dismiss="modal"><i class="bi bi-x-lg"></i></button>
+        </div>
+        <div class="modal-body service-modal-body">
+          <div class="row g-5 align-items-start">
+            <div class="col-lg-6">
+              <p class="service-modal-text">One-on-one sessions tailored entirely to your goals, skill level, and competition schedule. Private classes offer the most focused and personalized attention, allowing for rapid improvement in areas that matter most to your game.</p>
+              <div class="service-modal-divider"></div>
+              <div class="service-modal-testimonials-label">What People Are Saying</div>
+              <div class="service-testimonial">
+                <p class="service-testimonial-quote">"Add your testimonial here."</p>
+                <div class="service-testimonial-author"><span class="service-testimonial-name">Student Name</span><span class="service-testimonial-role">Belt & Role</span></div>
+              </div>
+              <a href="#contact" class="btn-primary-custom mt-4" data-bs-dismiss="modal" style="clip-path:none; padding:0.85rem 2rem;">Book a Private <i class="bi bi-arrow-right ms-1"></i></a>
+            </div>
+            <div class="col-lg-6"><div class="service-modal-img-placeholder"><i class="bi bi-image" style="font-size:2.5rem; opacity:0.3;"></i><span>Add photo here</span></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: Camps -->
+  <div class="modal fade" id="modalCamps" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content service-modal-content">
+        <div class="modal-header service-modal-header">
+          <div><div class="service-modal-label">What We Offer</div><h2 class="service-modal-title">Camps</h2></div>
+          <button type="button" class="service-modal-close" data-bs-dismiss="modal"><i class="bi bi-x-lg"></i></button>
+        </div>
+        <div class="modal-body service-modal-body">
+          <div class="row g-5 align-items-start">
+            <div class="col-lg-6">
+              <p class="service-modal-text">Structured group classes for all levels in a welcoming environment focused on technical growth, confidence, and steady progression on the mats. Camps offer an immersive multi-day experience combining drilling, live training, and direct coaching from Hannette.</p>
+              <div class="service-modal-divider"></div>
+              <div class="service-modal-testimonials-label">What People Are Saying</div>
+              <div class="service-testimonial">
+                <p class="service-testimonial-quote">"Add your testimonial here."</p>
+                <div class="service-testimonial-author"><span class="service-testimonial-name">Student Name</span><span class="service-testimonial-role">Belt & Role</span></div>
+              </div>
+              <a href="#contact" class="btn-primary-custom mt-4" data-bs-dismiss="modal" style="clip-path:none; padding:0.85rem 2rem;">Join a Camp <i class="bi bi-arrow-right ms-1"></i></a>
+            </div>
+            <div class="col-lg-6"><div class="service-modal-img-placeholder"><i class="bi bi-image" style="font-size:2.5rem; opacity:0.3;"></i><span>Add photo here</span></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: Coaching -->
+  <div class="modal fade" id="modalCoaching" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content service-modal-content">
+        <div class="modal-header service-modal-header">
+          <div><div class="service-modal-label">What We Offer</div><h2 class="service-modal-title">Professional Coaching (1:1)</h2></div>
+          <button type="button" class="service-modal-close" data-bs-dismiss="modal"><i class="bi bi-x-lg"></i></button>
+        </div>
+        <div class="modal-body service-modal-body">
+          <div class="row g-5 align-items-start">
+            <div class="col-lg-6">
+              <p class="service-modal-text">Long-term strategic coaching for athletes aiming for the podium — from game planning to mental conditioning. This is a committed partnership built around your specific goals, competition calendar, and development as both an athlete and person.</p>
+              <div class="service-modal-divider"></div>
+              <div class="service-modal-testimonials-label">What People Are Saying</div>
+              <div class="service-testimonial">
+                <p class="service-testimonial-quote">"Add your testimonial here."</p>
+                <div class="service-testimonial-author"><span class="service-testimonial-name">Student Name</span><span class="service-testimonial-role">Belt & Role</span></div>
+              </div>
+              <a href="#contact" class="btn-primary-custom mt-4" data-bs-dismiss="modal" style="clip-path:none; padding:0.85rem 2rem;">Start Coaching <i class="bi bi-arrow-right ms-1"></i></a>
+            </div>
+            <div class="col-lg-6"><div class="service-modal-img-placeholder"><i class="bi bi-image" style="font-size:2.5rem; opacity:0.3;"></i><span>Add photo here</span></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: Commentary -->
+  <div class="modal fade" id="modalCommentary" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content service-modal-content">
+        <div class="modal-header service-modal-header">
+          <div><div class="service-modal-label">What We Offer</div><h2 class="service-modal-title">Sports Commentary</h2></div>
+          <button type="button" class="service-modal-close" data-bs-dismiss="modal"><i class="bi bi-x-lg"></i></button>
+        </div>
+        <div class="modal-body service-modal-body">
+          <div class="row g-5 align-items-start">
+            <div class="col-lg-6">
+              <p class="service-modal-text">Professional on-air and event commentary drawing on Hannette's deep experience as an elite competitor and coach. Available for live events, broadcast productions, and digital content that requires an authoritative and engaging voice in Jiu-Jitsu and martial arts.</p>
+              <div class="service-modal-divider"></div>
+              <div class="service-modal-testimonials-label">What People Are Saying</div>
+              <div class="service-testimonial">
+                <p class="service-testimonial-quote">"Add your testimonial here."</p>
+                <div class="service-testimonial-author"><span class="service-testimonial-name">Contact Name</span><span class="service-testimonial-role">Event / Organization</span></div>
+              </div>
+              <a href="#contact" class="btn-primary-custom mt-4" data-bs-dismiss="modal" style="clip-path:none; padding:0.85rem 2rem;">Get in Touch <i class="bi bi-arrow-right ms-1"></i></a>
+            </div>
+            <div class="col-lg-6"><div class="service-modal-img-placeholder"><i class="bi bi-image" style="font-size:2.5rem; opacity:0.3;"></i><span>Add photo here</span></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
   <section id="contact">
     <div class="container">
       <div class="text-center mb-5">
@@ -787,53 +590,27 @@
         <h2 class="section-title">Contact Hannette</h2>
         <div class="title-bar mx-auto"></div>
       </div>
-
       <div class="row g-5 justify-content-center">
-
-        <!-- Info -->
         <div class="col-lg-4">
-          <h3 style="font-family:var(--font-display); font-size:1.5rem; margin-bottom:1.5rem; color:var(--gold);">
-            Let's Connect
-          </h3>
-          <p style="color:rgba(255,255,255,0.65); font-size:0.9rem; margin-bottom:2rem;">
-            Interested in booking a seminar, private session, or media appearance? Reach out and Hannette's team will get back to you shortly.
-          </p>
-
+          <h3 class="contact-heading">Let's Connect</h3>
+          <p class="contact-intro">Interested in booking a seminar, private session, or media appearance? Reach out and Hannette's team will get back to you shortly.</p>
           <div class="contact-info-item">
             <div class="contact-icon"><i class="bi bi-geo-alt-fill"></i></div>
-            <div>
-              <div class="contact-info-label">Location</div>
-              <div class="contact-info-value">Chicago, Illinois</div>
-            </div>
+            <div><div class="contact-info-label">Location</div><div class="contact-info-value">Chicago, Illinois</div></div>
           </div>
-
           <div class="contact-info-item">
             <div class="contact-icon"><i class="bi bi-globe2"></i></div>
-            <div>
-              <div class="contact-info-label">Website</div>
-              <div class="contact-info-value">hannettestaackbjj.com</div>
-            </div>
+            <div><div class="contact-info-label">Website</div><div class="contact-info-value">hannettestaackbjj.com</div></div>
           </div>
-
           <div class="contact-info-item">
             <div class="contact-icon"><i class="bi bi-instagram"></i></div>
-            <div>
-              <div class="contact-info-label">Instagram</div>
-              <div class="contact-info-value">@hannettestaack</div>
-            </div>
+            <div><div class="contact-info-label">Instagram</div><div class="contact-info-value">@hannettestaack</div></div>
           </div>
         </div>
-
-        <!-- Form -->
-        <!-- 
-          💡 TIP: Para fazer este formulário funcionar sem backend,
-          cadastre-se em https://formspree.io e substitua ACTION abaixo.
-          Exemplo: action="https://formspree.io/f/SEU_ID"
-        -->
+        <!-- 💡 Cadastre-se em https://formspree.io e substitua action="#" pelo seu link -->
         <div class="col-lg-7">
           <div class="contact-wrapper">
             <form action="#" method="POST">
-
               <div class="row g-3">
                 <div class="col-md-6">
                   <label class="form-label" for="name">Your Name</label>
@@ -850,7 +627,7 @@
                     <option>Seminars & Workshops</option>
                     <option>Elite Peak Performance</option>
                     <option>Private Classes</option>
-                    <option>Group Classes at the Academy</option>
+                    <option>Camps</option>
                     <option>Professional Coaching (1:1)</option>
                     <option>Sports Commentary</option>
                     <option>Event Registration</option>
@@ -859,8 +636,7 @@
                 </div>
                 <div class="col-12">
                   <label class="form-label" for="message">Message</label>
-                  <textarea id="message" name="message" class="form-control" rows="5"
-                            placeholder="Tell Hannette a bit about what you're looking for..."></textarea>
+                  <textarea id="message" name="message" class="form-control" rows="5" placeholder="Tell Hannette a bit about what you're looking for..."></textarea>
                 </div>
                 <div class="col-12">
                   <button type="submit" class="btn-primary-custom w-100 text-center" style="clip-path:none; padding:1rem;">
@@ -868,16 +644,69 @@
                   </button>
                 </div>
               </div>
-
             </form>
           </div>
         </div>
-
       </div>
     </div>
   </section>
 
-  <!-- ══════════════════ FOOTER ══════════════════════ -->
+  <!-- PARTNERS -->
+  <section id="partners">
+    <div class="container">
+      <div class="text-center mb-5">
+        <p class="section-label">The People Behind the Champion</p>
+        <h2 class="section-title">Support & Partners</h2>
+        <div class="title-bar mx-auto"></div>
+      </div>
+      <div class="row justify-content-center align-items-center g-2">
+        <div class="col-6 col-sm-4 col-lg-2">
+          <div class="partner-item">
+            <img src="img/partner-brazil021.png" alt="Brazil-021 School of Jiu-Jitsu">
+            <div class="partner-item-name">Brazil-021</div>
+            <div class="partner-item-role">School of Jiu-Jitsu</div>
+          </div>
+        </div>
+        <div class="col-6 col-sm-4 col-lg-2">
+          <div class="partner-item">
+            <img src="img/partner-nova-uniao.png" alt="Nova União BJJ">
+            <div class="partner-item-name">Nova União</div>
+            <div class="partner-item-role">Brazilian Jiu-Jitsu</div>
+          </div>
+        </div>
+        <div class="col-6 col-sm-4 col-lg-2">
+          <div class="partner-item">
+            <img src="img/partner-erik.png" alt="Erik Salum Godoy">
+            <div class="partner-item-name">Erik Salum Godoy</div>
+            <div class="partner-item-role">Head Coach</div>
+          </div>
+        </div>
+        <div class="col-6 col-sm-4 col-lg-2">
+          <div class="partner-item">
+            <img src="img/partner-fg.png" alt="Fernando Gonçalves">
+            <div class="partner-item-name">Fernando Gonçalves</div>
+            <div class="partner-item-role">Nutrição de Elite</div>
+          </div>
+        </div>
+        <div class="col-6 col-sm-4 col-lg-2">
+          <div class="partner-item">
+            <img src="img/partner-lilian.png" alt="Lilian Villaça">
+            <div class="partner-item-name">Lilian Villaça</div>
+            <div class="partner-item-role">Psicanalista</div>
+          </div>
+        </div>
+        <div class="col-6 col-sm-4 col-lg-2">
+          <div class="partner-item">
+            <img src="img/partner-cdpd.png" alt="CDPD">
+            <div class="partner-item-name">CDPD</div>
+            <div class="partner-item-role">Performance & Research</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
   <footer>
     <div class="container">
       <img src="img/logo.png" alt="Hannette Staack BJJ" height="70" class="mb-2">
@@ -887,33 +716,29 @@
         <a href="https://www.linkedin.com/in/hannettestaack/" target="_blank" class="social-link" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
         <a href="https://www.facebook.com/hannettestaackbjj/" target="_blank" class="social-link" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
       </div>
-      <p class="footer-text">
-        © <span id="ano"></span> Hannette Staack · hannettestaackbjj.com · All rights reserved.
-      </p>
+      <p class="footer-text">© <span id="ano"></span> Hannette Staack · hannettestaackbjj.com · All rights reserved.</p>
     </div>
   </footer>
 
-  <!-- Bootstrap 5 JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Smooth active nav highlight on scroll -->
   <script>
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-link');
-
     window.addEventListener('scroll', () => {
       let current = '';
-      sections.forEach(sec => {
-        if (window.scrollY >= sec.offsetTop - 100) current = sec.id;
-      });
+      sections.forEach(sec => { if (window.scrollY >= sec.offsetTop - 100) current = sec.id; });
       navLinks.forEach(link => {
         link.classList.remove('active');
         if (link.getAttribute('href') === '#' + current) link.classList.add('active');
       });
     });
-  
-  document.getElementById('ano').textContent = new Date().getFullYear();
+    const eventsSection = document.getElementById('events');
+    const carousel = bootstrap.Carousel.getOrCreateInstance(document.getElementById('eventsCarousel'));
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (!entry.isIntersecting) carousel.to(0); });
+    }, { threshold: 0.1 });
+    observer.observe(eventsSection);
+    document.getElementById('ano').textContent = new Date().getFullYear();
   </script>
-
 </body>
 </html>
